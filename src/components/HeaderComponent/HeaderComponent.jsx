@@ -104,99 +104,232 @@ const HeaderComponent = ({ isHiddenSearch = false, isHiddenCart = false }) => {
         justifyContent: "center",
       }}
     >
-      <WrapperHeader
-        style={{
-          justifyContent:
-            isHiddenSearch && isHiddenSearch ? "space-between" : "unset",
-        }}
-      >
-        <Col span={5}>
-          <WrapperTextHeader
-            onClick={() => navigate("/")}
-            style={{ cursor: "pointer" }}
-          >
-            <div style={{ height: "50px", width: "160px" }}>
-              <img src={logoImage} alt="Logo" />
+      {/* Navbar start */}
+      <div className="container-fluid fixed-top">
+        <div className="container topbar bg-primary d-none d-lg-block">
+          <div className="d-flex justify-content-between">
+            <div className="top-info ps-2">
+              <small className="me-3">
+                <i className="fas fa-map-marker-alt me-2 text-secondary"></i>
+                <a href="#" className="text-white">
+                  123 Street, New York
+                </a>
+              </small>
+              <small className="me-3">
+                <i className="fas fa-envelope me-2 text-secondary"></i>
+                <a href="#" className="text-white">
+                  Email@Example.com
+                </a>
+              </small>
             </div>
-          </WrapperTextHeader>
-        </Col>
-        {!isHiddenSearch && (
-          <Col span={13}>
-            <ButtonInputSearch
-              size="large"
-              bordered={false}
-              textButton="Tìm kiếm"
-              placeholder="Bạn tìm gì hôm nay"
-              onChange={onSearch}
-              backgroundColorButton="#5a20c1"
-            />
-          </Col>
-        )}
-        <Col
-          span={6}
-          style={{ display: "flex", gap: "54px", alignItems: "center" }}
-        >
-          <Loading isPending={loading}>
-            <WrapperHeaderAccount>
-              {userAvatar ? (
-                <img
-                  src={userAvatar}
-                  alt="avatar"
-                  style={{
-                    height: "30px",
-                    width: "30px",
-                    borderRadius: "50%",
-                    objectFit: "cover",
-                  }}
-                />
-              ) : (
-                <UserOutlined style={{ fontSize: "30px" }} />
-              )}
-              {user?.access_token ? (
-                <>
-                  <Popover content={content} trigger="click" open={isOpenPopup}>
-                    <div
-                      style={{
-                        cursor: "pointer",
-                        maxWidth: 100,
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                      }}
-                      onClick={() => setIsOpenPopup((prev) => !prev)}
-                    >
-                      {userName?.length ? userName : user?.email}
-                    </div>
-                  </Popover>
-                </>
-              ) : (
-                <div
-                  onClick={handleNavigateLogin}
-                  style={{ cursor: "pointer" }}
+            <div className="top-link pe-2">
+              <a href="#" className="text-white">
+                <small className="text-white mx-2">Privacy Policy</small>/
+              </a>
+              <a href="#" className="text-white">
+                <small className="text-white mx-2">Terms of Use</small>/
+              </a>
+              <a href="#" className="text-white">
+                <small className="text-white ms-2">Sales and Refunds</small>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="container px-0">
+          <nav className="navbar navbar-light bg-white navbar-expand-xl">
+            <a href="/" className="navbar-brand">
+              <h1 className="text-primary display-6">Nhân Shop</h1>
+            </a>
+            <button
+              className="navbar-toggler py-2 px-3"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarCollapse"
+            >
+              <span className="fa fa-bars text-primary"></span>
+            </button>
+            <div
+              className="collapse navbar-collapse bg-white"
+              id="navbarCollapse"
+            >
+              <div className="navbar-nav mx-auto">
+                <a
+                  className="nav-item nav-link active"
+                  onClick={() => navigate("/")}
                 >
-                  <Span>Đăng nhập/Đăng ký</Span>
-                  <div>
-                    <Span>Tài khoản</Span>
-                    <CaretDownOutlined />
+                  Home
+                </a>
+                <a onClick={() => navigate("/product/:type")} className="nav-item nav-link">
+                  Shop
+                </a>
+                <a href="/shop-detail" className="nav-item nav-link">
+                  Shop Detail
+                </a>
+                <div className="nav-item dropdown">
+                  <a
+                    href="#"
+                    className="nav-link dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                  >
+                    Pages
+                  </a>
+                  <div className="dropdown-menu m-0 bg-secondary rounded-0">
+                    <a
+                      onClick={() => navigate("/order")}
+                      className="dropdown-item"
+                    >
+                      Cart
+                    </a>
+                    <a
+                      onClick={() =>
+                        navigate("/my-order", {
+                          state: {
+                            id: user?.id,
+                            token: user?.access_token,
+                          },
+                        })
+                      }
+                      className="dropdown-item"
+                    >
+                      Checkout
+                    </a>
+                    <a href="/testimonial" className="dropdown-item">
+                      Testimonial
+                    </a>
+                    <a href="/404" className="dropdown-item">
+                      404 Page
+                    </a>
                   </div>
                 </div>
-              )}
-            </WrapperHeaderAccount>
-          </Loading>
-          {!isHiddenCart && (
-            <div
-              onClick={() => navigate("/order")}
-              style={{ cursor: "pointer" }}
-            >
-              <Badge count={order?.orderItems?.length} size="small">
-                <ShoppingCartOutlined
-                  style={{ fontSize: "30px", color: "#fff" }}
-                />
-              </Badge>
-              <Span>Giỏ hàng</Span>
+                <a href="/contact" className="nav-item nav-link">
+                  Contact
+                </a>
+              </div>
+              <div className="d-flex m-3 me-0">
+                <button
+                  className="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"
+                  data-bs-toggle="modal"
+                  data-bs-target="#searchModal"
+                >
+                  <i className="fas fa-search text-primary"></i>
+                </button>
+                <a className="position-relative me-4 my-auto">
+                  {!isHiddenCart && (
+                    <div
+                      onClick={() => navigate("/order")}
+                      style={{ cursor: "pointer" }}
+                    >
+                      <i className="fa fa-shopping-bag fa-2x"></i>
+                      <span
+                        className="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
+                        style={{
+                          top: "-5px",
+                          left: "15px",
+                          height: "20px",
+                          minWidth: "20px",
+                        }}
+                      >
+                        <Badge
+                          count={order?.orderItems?.length}
+                          size="small"
+                        ></Badge>
+                      </span>
+                    </div>
+                  )}
+                </a>
+
+                <Popover content={content} trigger="click" open={isOpenPopup}>
+                  <div
+                    className="my-auto"
+                    onClick={() =>
+                      user?.access_token
+                        ? setIsOpenPopup((prev) => !prev)
+                        : handleNavigateLogin()
+                    }
+                  >
+                    {userAvatar ? (
+                      <img
+                        src={userAvatar}
+                        alt="avatar"
+                        style={{
+                          height: "30px",
+                          width: "30px",
+                          borderRadius: "50%",
+                          objectFit: "cover",
+                          cursor: "pointer" ,
+                        }}
+                      />
+                    ) : (
+                      <UserOutlined style={{ fontSize: "30px" ,cursor: "pointer" }} />
+                    )}
+                    {user?.access_token ? (
+                      <div
+                        style={{
+                          cursor: "pointer",
+                          maxWidth: 100,
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                          cursor: "pointer" 
+                        }}
+                        onClick={() => setIsOpenPopup((prev) => !prev)}
+                      >
+                        {/* Nội dung cho tài khoản người dùng có đăng nhập */}
+                      </div>
+                    ) : (
+                      <div
+                        style={{ cursor: "pointer" }}
+                        onClick={handleNavigateLogin}
+                      ></div>
+                    )}
+                  </div>
+                </Popover>
+              </div>
             </div>
-          )}
-        </Col>
-      </WrapperHeader>
+          </nav>
+        </div>
+      </div>
+      {/* Navbar End */}
+
+      {/* Modal Search Start */}
+      <div
+        className="modal fade"
+        id="searchModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-fullscreen">
+          <div className="modal-content rounded-0">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">
+                Search by keyword
+              </h5>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body d-flex align-items-center">
+              <div className="input-group w-75 mx-auto d-flex">
+                <input
+                  type="search"
+                  className="form-control p-3"
+                  placeholder="keywords"
+                  aria-describedby="search-icon-1"
+                  value={search}
+                  onChange={onSearch}
+                />
+                <span id="search-icon-1" className="input-group-text p-3">
+                  <i className="fa fa-search"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Modal Search End */}
     </div>
   );
 };

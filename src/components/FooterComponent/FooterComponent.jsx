@@ -1,204 +1,185 @@
 import React from "react";
 import {
-  InformationContainer,
-  Title,
-  SmallLinks,
-  Link,
-  CertifiedImage,
-  StyledAnchor,
-  Icon,
-  FooterWrapper,
-  Fontstyle,
-  style,
-} from "./style";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCcVisa,
-  faCcMastercard,
-  faCcPaypal,
-  faCcJcb,
-  faFacebook,
-  faYoutube,
-  faXTwitter,
+
 } from "@fortawesome/free-brands-svg-icons";
 
 const FooterComponent = ({
-  supportLinks,
-  StoreLinks,
-  CooperationLinks,
-  PaymentLinks,
+  
 }) => {
   return (
     <div>
-      <InformationContainer>
-        <div>
-          <Title>Hỗ trợ khách hàng</Title>
-          <SmallLinks>
-            {supportLinks.map((link, index) => (
-              <Link key={index} href={link.href}>
-                {link.text}
-              </Link>
-            ))}
-          </SmallLinks>
-        </div>
-        <div>
-          <Title>Về Nhân Tài Store</Title>
-          <SmallLinks>
-            {StoreLinks.map((link, index) => (
-              <Link key={index} href={link.href}>
-                {link.text}
-              </Link>
-            ))}
-          </SmallLinks>
-        </div>
-        <div>
-          <Title>Hợp tác và liên kết</Title>
-          <SmallLinks>
-            {CooperationLinks.map((link, index) => (
-              <Link key={index} href={link.href}>
-                {link.text}
-              </Link>
-            ))}
-          </SmallLinks>
-          <StyledAnchor
-            href="https://example.com/link1"
-            rel="nofollow noreferrer"
-            aria-label=""
-            target="_blank"
+      {/* Footer Start */}
+      <div className="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
+        <div className="container py-5">
+          <div
+            className="pb-4 mb-4"
+            style={{ borderBottom: "1px solid rgba(226, 175, 24, 0.5)" }}
           >
-            <CertifiedImage
-              src="https://frontend.tikicdn.com/_desktop-next/static/img/footer/bo-cong-thuong-2.png"
-              alt="bo-cong-thuong-2"
-            />
-          </StyledAnchor>
-          <StyledAnchor
-            href="https://example.com/link1"
-            rel="nofollow noreferrer"
-            aria-label=""
-            target="_blank"
-          >
-            <CertifiedImage
-              src="https://frontend.tikicdn.com/_desktop-next/static/img/footer/bo-cong-thuong.svg"
-              alt="bo-cong-thuong-2"
-            />
-          </StyledAnchor>
-          <StyledAnchor
-            href="https://example.com/link1"
-            rel="nofollow noreferrer"
-            aria-label=""
-            target="_blank"
-          >
-            <CertifiedImage
-              src="https://images.dmca.com/Badges/dmca_protected_sml_120y.png?ID=388d758c-6722-4245-a2b0-1d2415e70127"
-              alt="bo-cong-thuong-2"
-            />
-          </StyledAnchor>
+            <div className="row g-4">
+              <div className="col-lg-3">
+                <a href="#">
+                  <h1 className="mb-0" style={{color :'#f4f6f8'}} >Nhân Shop</h1>
+                  <p className=" mb-0" style={{color :'#f4f6f8'}}>Phụ Kiện Diện Thoại</p>
+                </a>
+              </div>
+              <div className="col-lg-6">
+                <div className="position-relative mx-auto">
+                  <input
+                    className="form-control border-0 w-100 py-3 px-4 rounded-pill"
+                    type="number"
+                    placeholder="Your Email"
+                  />
+                  <button
+                    type="submit"
+                    className="btn btn-primary border-0 border-secondary py-3 px-4 position-absolute rounded-pill text-white"
+                    style={{ top: 0, right: 0 }}
+                  >
+                    Subscribe Now
+                  </button>
+                </div>
+              </div>
+              <div className="col-lg-3">
+                <div className="d-flex justify-content-end pt-3">
+                  <a
+                    className="btn  btn-outline-secondary me-2 btn-md-square rounded-circle"
+                    href="#"
+                  >
+                    <i className="fab fa-twitter"></i>
+                  </a>
+                  <a
+                    className="btn btn-outline-secondary me-2 btn-md-square rounded-circle"
+                    href="#"
+                  >
+                    <i className="fab fa-facebook-f"></i>
+                  </a>
+                  <a
+                    className="btn btn-outline-secondary me-2 btn-md-square rounded-circle"
+                    href="#"
+                  >
+                    <i className="fab fa-youtube"></i>
+                  </a>
+                  <a
+                    className="btn btn-outline-secondary btn-md-square rounded-circle"
+                    href="#"
+                  >
+                    <i className="fab fa-linkedin-in"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="row g-5">
+            <div className="col-lg-3 col-md-6">
+              <div className="footer-item">
+                <h4 className="text-light mb-3">Why People Like us!</h4>
+                <p className="mb-4">
+                  typesetting, remaining essentially unchanged. It was
+                  popularised in the 1960s with the like Aldus PageMaker
+                  including of Lorem Ipsum.
+                </p>
+                <a
+                  href="#"
+                  className="btn border-secondary py-2 px-4 rounded-pill text-primary"
+                >
+                  Read More
+                </a>
+              </div>
+            </div>
+            <div className="col-lg-3 col-md-6">
+              <div className="d-flex flex-column text-start footer-item">
+                <h4 className="text-light mb-3">Shop Info</h4>
+                <a className="btn-link" href="#">
+                  About Us
+                </a>
+                <a className="btn-link" href="#">
+                  Contact Us
+                </a>
+                <a className="btn-link" href="#">
+                  Privacy Policy
+                </a>
+                <a className="btn-link" href="#">
+                  Terms & Condition
+                </a>
+                <a className="btn-link" href="#">
+                  Return Policy
+                </a>
+                <a className="btn-link" href="#">
+                  FAQs & Help
+                </a>
+              </div>
+            </div>
+            <div className="col-lg-3 col-md-6">
+              <div className="d-flex flex-column text-start footer-item">
+                <h4 className="text-light mb-3">Account</h4>
+                <a className="btn-link" href="#">
+                  My Account
+                </a>
+                <a className="btn-link" href="#">
+                  Shop details
+                </a>
+                <a className="btn-link" href="#">
+                  Shopping Cart
+                </a>
+                <a className="btn-link" href="#">
+                  Wishlist
+                </a>
+                <a className="btn-link" href="#">
+                  Order History
+                </a>
+                <a className="btn-link" href="#">
+                  International Orders
+                </a>
+              </div>
+            </div>
+            <div className="col-lg-3 col-md-6">
+              <div className="footer-item">
+                <h4 className="text-light mb-3">Contact</h4>
+                <p>Address: 1429 Netus Rd, NY 48247</p>
+                <p>Email: Example@gmail.com</p>
+                <p>Phone: +0123 4567 8910</p>
+                <p>Payment Accepted</p>
+                <img
+                  src="img/payment.png"
+                  className="img-fluid"
+                  alt="Payment Methods"
+                />
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-          <Title>Phương thức thanh toán</Title>
-          <p className="payment">
-            <Icon className="icon">
-              <FontAwesomeIcon icon={faCcVisa} />
-              <FontAwesomeIcon icon={faCcMastercard} />
-              <FontAwesomeIcon icon={faCcPaypal} />
-              <FontAwesomeIcon icon={faCcJcb} />
-            </Icon>
-          </p>
-          <Title>Dịch vụ giao hàng</Title>
-          <StyledAnchor>
-            <img
-              src="https://down-vn.img.susercontent.com/file/6e3be504f08f88a15a28a9a447d94d3d"
-              alt="bo-cong-thuong-2"
-            />
-          </StyledAnchor>
-        </div>
-        <div>
-          <Title>Kết nối với chúng tôi </Title>
-          <p className="payment">
-            <Icon className="icon">
-              <a
-                href="https://example.com/link1"
-                rel="nofollow noreferrer"
-                aria-label=""
-                target="_blank"
-              >
-                <FontAwesomeIcon icon={faFacebook} />
-              </a>
-              <a
-                href="https://example.com/link1"
-                rel="nofollow noreferrer"
-                aria-label=""
-                target="_blank"
-              >
-                <FontAwesomeIcon icon={faYoutube} />
-              </a>
-              <a
-                href="https://example.com/link1"
-                rel="nofollow noreferrer"
-                aria-label=""
-                target="_blank"
-              >
-                <FontAwesomeIcon icon={faXTwitter} />
-              </a>
-            </Icon>
-          </p>
-        </div>
-        <div>
-          <Title>Tải úng dụng trên điện thoại</Title>
-          <Fontstyle>
-            <img
-              src="https://frontend.tikicdn.com/_desktop-next/static/img/footer/qrcode.png"
-              width="80"
-              height="80"
-              alt="tiki-qr"
-            />
-            <FooterWrapper>
-              <img
-                src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/appstore.png"
-                width="122"
-                alt="tiki-app-store"
-              />
-              <img
-                src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/playstore.png"
-                width="122"
-                alt="tiki-google-play"
-              />
-            </FooterWrapper>
-          </Fontstyle>
-        </div>
-      </InformationContainer>
+      </div>
+      {/* Footer End */}
 
-      <div className="description">
-        <Title>Công ty TNHH Nhân Tài</Title>
-        <p>
-          Tòa nhà số 52 đường Út Tịch, Phường 4, Quận Tân Bình, Thành phố Hồ Chí
-          Minh
-          <br />
-          Giấy chứng nhận đăng ký doanh nghiệp số 0309532909 do Sở Kế Hoạch và
-          Đầu Tư Thành phố Hồ Chí Minh cấp lần đầu vào ngày 06/01/2010.
-          <br />
-          Hotline: 1900 6035
-        </p>
+      {/* Copyright Start */}
+      <div className="container-fluid copyright bg-dark py-4">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6 text-center text-md-start mb-3 mb-md-0">
+              <span className="text-light">
+                <a href="#">
+                  <i className="fas fa-copyright text-light me-2"></i>Nguyễn Thành Nhân
+                </a>
+                , All right reserved.
+              </span>
+            </div>
+            <div className="col-md-6 my-auto text-center text-md-end text-white">
+              Designed By{" "}
+              <a className="border-bottom" href="https://htmlcodex.com">
+                HTML Codex
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div>
-        <Title>NhânTàiStore - Thật chậm, thật tệ, thật mắc</Title>
-        <p>
-          Bạn muốn săn giá sốc, Tiki có giá sốc mỗi ngày cho bạn! Bạn là tín đồ
-          của các thương hiệu, các cửa hàng Official chính hãng đang chờ đón
-          bạn.
-          <br />
-          Không cần săn mã freeship, vì Tiki đã có hàng triệu sản phẩm trong
-          chương trình Freeship+, không giới hạn lượt đặt, tiết kiệm thời gian
-          vàng bạc của bạn.
-          <br />
-          Mua thêm gói TikiNOW tiết kiệm để nhận 100% free ship 2h & trong ngày,
-          hoặc mua gói TikiNOW cao cấp để nhận được 100% freeship,
-          <br />
-          áp dụng cho 100% sản phẩm, 100% tỉnh thành Việt Nam. Bạn muốn tiết
-          kiệm hơn nữa? Đã có TikiCARD, thẻ tín dụng Tiki hoàn tiền 15% trên mọi
-          giao dịch (tối đa hoàn 600k/tháng)
-        </p>
-      </div>
+      {/* Copyright End */}
+
+      {/* Back to Top */}
+      <a
+        href="#"
+        className="btn btn-primary border-3 border-primary rounded-circle back-to-top"
+      >
+        <i className="fa fa-arrow-up"></i>
+      </a>
     </div>
   );
 };

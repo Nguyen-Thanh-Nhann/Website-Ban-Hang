@@ -89,10 +89,20 @@ const MyOrderPage = () => {
   }
 
   return (
-    <Loading isPending={isPending || isPendingCancel}>
+    
       <WrapperContainer>
+        {/* <!-- Single Page Header start --> */}
+        <div class="container-fluid page-header py-5">
+            <h1 class="text-center text-white display-6">Shop</h1>
+            <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                <li class="breadcrumb-item active text-white">Đơn hàng của tôi</li>
+            </ol>
+        </div>
         <div style={{height: '100%', width: '1270px', margin: '0 auto'}}>
-          <h4>Đơn hàng của tôi</h4>
+        
+        {/* <!-- Single Page Header End --> */}
           <WrapperListOrder>
             {data?.map((order) => {
               return (
@@ -159,7 +169,7 @@ const MyOrderPage = () => {
           </WrapperListOrder>
         </div>
       </WrapperContainer>
-    </Loading>
+
   )
 }
 

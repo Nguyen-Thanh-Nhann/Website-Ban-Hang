@@ -5,9 +5,6 @@ import {
   WrapperProducts,
   WrapperTypeProduct,
 } from "./style";
-import slider1 from "../../assets/images/slider1.webp";
-import slider2 from "../../assets/images/slider2.webp";
-import slider3 from "../../assets/images/slider3.webp";
 import SliderComponent from "../../components/SliderComponent/SliderComponent";
 import CardComponent from "../../components/CardComponent/CardComponent";
 import * as ProductService from "../../services/ProductService";
@@ -16,6 +13,7 @@ import Loading from "../../components/LoadingComponent/Loading";
 import { useSelector } from "react-redux";
 import { useDebounce } from "../../hooks/useDebounce";
 import FooterComponent from "../../components/FooterComponent/FooterComponent";
+import BannerComponent from "../../components/BannerComponent/BannerComponent";
 // links này là cho Footer
 const supportLinks = [
   { href: "https://example.com/link1", text: "Hotline" },
@@ -88,53 +86,65 @@ const HomePage = () => {
     retryDelay: 1000,
     placeholderData: (previousData) => previousData,
   });
-
+  
   return (
     <Loading isPending={isPending || loading}>
-      <div style={{ width: "1270px", margin: "0 auto" }}>
-        <WrapperTypeProduct>
-          {typeProducts.map((item) => {
-            return <TypeProduct name={item} key={item} />;
-          })}
-        </WrapperTypeProduct>
-      </div>
-      <div
-        className="body"
-        style={{ width: "100%", backgroundColor: "#efefef" }}
-      >
-        <div
-          id="container"
-          style={{ height: "100%", width: "1270px", margin: "0 auto" }}
-        >
-          <SliderComponent arrImages={[slider1, slider2, slider3]} />
-          <div
-            style={{
-              marginTop: "20px",
-              display: "flex",
-              alignItems: "center",
-              gap: "30px",
-              flexWrap: "wrap",
-            }}
-          >
-            <WrapperProducts>
-              {products?.data?.map((product) => {
-                return (
-                  <CardComponent
-                    key={product._id}
-                    countInStock={product.countInStock}
-                    description={product.description}
-                    image={product.image}
-                    name={product.name}
-                    price={product.price}
-                    rating={product.rating}
-                    type={product.type}
-                    selled={product.selled}
-                    discount={product.discount}
-                    id={product._id}
-                  />
-                );
-              })}
-            </WrapperProducts>
+      <div className="body">
+         <BannerComponent />
+        <div id="container">
+            {/* <!-- Fruits Shop Start--> */}
+        <div class="container-fluid fruite py-5">
+            <div class="container py-5">
+                <div class="tab-class text-center">
+                    <div class="row g-4">
+                        <div class="col-lg-4 text-start">
+                            <h1>Our Organic Products</h1>
+                        </div>
+                        <div class="col-lg-8 text-end"> 
+                          <ul class="nav nav-pills d-inline-flex text-center mb-5">
+                            {typeProducts.map((item) => (
+                              <li class="nav-item" key={item}>
+                                <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" >
+                                  <span class="text-dark" style={{ width: '130px' }}><TypeProduct name={item}/></span>
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                    </div>
+                    <div class="tab-content">
+                        <div id="tab-1" class="tab-pane fade show p-0 active">
+                            <div class="row g-4">
+                                <div class="col-lg-12">
+                                    <div class="row g-4">
+                                    <WrapperProducts>
+                                      {products?.data?.map((product) => {
+                                        return (
+                                          <CardComponent
+                                            key={product._id}
+                                            countInStock={product.countInStock}
+                                            description={product.description}
+                                            image={product.image}
+                                            name={product.name}
+                                            price={product.price}
+                                            rating={product.rating}
+                                            type={product.type}
+                                            selled={product.selled}
+                                            discount={product.discount}
+                                            id={product._id}
+                                          />
+                                        );
+                                      })}
+                                    </WrapperProducts>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>      
+            </div>
+        </div>
+        {/* <!-- Fruits Shop End--> */}
           </div>
           <div
             style={{
@@ -170,8 +180,59 @@ const HomePage = () => {
               onClick={() => setLimit((prev) => prev + 8)}
             />
           </div>
+          {/* <!-- Featurs Section Start --> */}
+        <div class="container-fluid featurs py-5">
+            <div class="container py-5">
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="featurs-item text-center rounded bg-light p-4">
+                        <div class="featurs-icon btn-square rounded-circle mb-5 mx-auto" style={{backgroundColor: '#319fff'}}>
+                                <i class="fas fa-car-side fa-3x text-white"></i>
+                            </div>
+                            <div class="featurs-content text-center">
+                                <h5>Free Shipping</h5>
+                                <p class="mb-0">Free on order over $300</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="featurs-item text-center rounded bg-light p-4">
+                            <div class="featurs-icon btn-square rounded-circle mb-5 mx-auto" style={{backgroundColor: '#319fff'}}>
+                                <i class="fas fa-user-shield fa-3x text-white"></i>
+                            </div>
+                            <div class="featurs-content text-center">
+                                <h5>Security Payment</h5>
+                                <p class="mb-0">100% security payment</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="featurs-item text-center rounded bg-light p-4">
+                        <div class="featurs-icon btn-square rounded-circle mb-5 mx-auto" style={{backgroundColor: '#319fff'}}>
+                                <i class="fas fa-exchange-alt fa-3x text-white"></i>
+                            </div>
+                            <div class="featurs-content text-center">
+                                <h5>30 Day Return</h5>
+                                <p class="mb-0">30 day money guarantee</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="featurs-item text-center rounded bg-light p-4">
+                        <div class="featurs-icon btn-square rounded-circle mb-5 mx-auto" style={{backgroundColor: '#319fff'}}>
+                                <i class="fa fa-phone-alt fa-3x text-white"></i>
+                            </div>
+                            <div class="featurs-content text-center">
+                                <h5>24/7 Support</h5>
+                                <p class="mb-0">Support every time fast</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+        {/* <!-- Featurs Section End --> */}
+        </div>
 
       <FooterComponent
         supportLinks={supportLinks}

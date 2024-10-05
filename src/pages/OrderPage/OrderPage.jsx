@@ -230,8 +230,17 @@ const OrderPage = () => {
   ];
   return (
     <div style={{ background: "#f5f5fa", with: "100%", height: "100vh" }}>
+      {/* <!-- Single Page Header start --> */}
+      <div class="container-fluid page-header py-5">
+            <h1 class="text-center text-white display-6">Shop</h1>
+            <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                <li class="breadcrumb-item active text-white">Giỏ hàng</li>
+            </ol>
+        </div>
+        {/* <!-- Single Page Header End --> */}
       <div style={{ height: "100%", width: "1270px", margin: "0 auto" }}>
-        <h3 style={{ fontWeight: "bold" }}>Giỏ hàng</h3>
         <div style={{ display: "flex", justifyContent: "center" }}>
           <WrapperLeft>
             <h4>Phí giao hàng</h4>

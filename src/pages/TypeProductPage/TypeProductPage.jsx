@@ -46,6 +46,16 @@ const TypeProductPage = () => {
   return (
     <Loading isPending={loading}>
       <div style={{ width: "100%", background: "#efefef", height: "calc(100vh - 64px)" }}>
+         {/* <!-- Single Page Header start --> */}
+        <div class="container-fluid page-header py-5">
+              <h1 class="text-center text-white display-6">Shop</h1>
+              <ol class="breadcrumb justify-content-center mb-0">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                  <li class="breadcrumb-item active text-white">Danh mục sản phẩm</li>
+              </ol>
+          </div>
+        {/* <!-- Single Page Header End --> */}
         <div style={{ width: "1270px", margin: "0 auto", height: "100%" }}>
           <Row style={{ flexWrap: "nowrap", paddingTop: "10px", height: "calc(100% - 20px)" }}>
             <WrapperNavbar span={4}>

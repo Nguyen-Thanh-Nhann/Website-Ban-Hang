@@ -14,7 +14,7 @@ const TypeProduct = ({ name }) => {
   };
   return (
     <div
-      style={{ padding: "0 10px", cursor: "pointer" }}
+      style={{ cursor: "pointer" }}
       onClick={() => handleNavigatetype(name)}
     >
       {name}

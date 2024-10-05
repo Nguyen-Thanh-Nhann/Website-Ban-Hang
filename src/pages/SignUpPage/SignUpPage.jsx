@@ -83,10 +83,10 @@ const SignUpPage = () => {
         <WrapperContainerLeft>
           <h1>Xin chào</h1>
           <p>Đăng ký tài khoản mới</p>
-          <InputForm style={{ marginBottom: '10px' }} placeholder="Name" value={name} onChange={handleOnchangeName} />
-          <InputForm style={{ marginBottom: '10px' }} placeholder="Phone" value={phone} onChange={handleOnchangePhone} />
-          <InputForm style={{ marginBottom: '10px' }} placeholder="City" value={city} onChange={handleOnchangeCity} />
-          <InputForm style={{ marginBottom: '10px' }} placeholder="Address" value={address} onChange={handleOnchangeAddress} />
+          <InputForm style={{ marginBottom: '10px' }} placeholder="Họ và tên" value={name} onChange={handleOnchangeName} />
+          <InputForm style={{ marginBottom: '10px' }} placeholder="Số điện thoại" value={phone} onChange={handleOnchangePhone} />
+          <InputForm style={{ marginBottom: '10px' }} placeholder="Thành Phố" value={city} onChange={handleOnchangeCity} />
+          <InputForm style={{ marginBottom: '10px' }} placeholder="Địa chỉ nhà" value={address} onChange={handleOnchangeAddress} />
           <InputForm style={{ marginBottom: '10px' }} placeholder="abc@gmail.com" value={email} onChange={handleOnchangeEmail} />
           <div style={{ position: 'relative' }}>
             <span
@@ -101,7 +101,7 @@ const SignUpPage = () => {
               {isShowPassword ? <EyeFilled /> : <EyeInvisibleFilled />}
             </span>
             <InputForm
-              placeholder="password"
+              placeholder="Mật khẩu"
               style={{ marginBottom: '10px' }}
               type={isShowPassword ? "text" : "password"}
               value={password}
@@ -121,7 +121,7 @@ const SignUpPage = () => {
               {isShowConfirmPassword ? <EyeFilled /> : <EyeInvisibleFilled />}
             </span>
             <InputForm
-              placeholder="Confirm password"
+              placeholder="Hãy nhập lại mật khẩu"
               type={isShowConfirmPassword ? "text" : "password"}
               value={confirmPassword}
               onChange={handleOnchangeConfirmPassword}
